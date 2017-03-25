@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Storm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Storm">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Storm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Storm">
+  
+    <link rel="alternate" href="/atom.xml" title="Storm" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Storm</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-对apply和call的理解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/24/对apply和call的理解/" class="article-date">
+  <time datetime="2017-03-24T07:55:48.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/24/对apply和call的理解/">对apply和call的理解</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/24/对apply和call的理解/" data-id="cj0op6nzl0000x50blmu5n12t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-函数(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/24/函数(一)/" class="article-date">
+  <time datetime="2017-03-24T07:48:32.000Z" itemprop="datePublished">2017-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/24/函数(一)/">函数(一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数是javascript的代码执行的模块化单元，了解函数是学习JS的基础中的基础。<br>函数式作为JS中的第一型对象，可以视为其他任意类型的JS对象，可被任何变量进行引用。</p>
+<h4 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h4><p>函数的创建是要通过函数字面量进行声明，主要有四个部分组成：</p>
+<ol>
+<li>function关键字</li>
+<li>可选的函数名称</li>
+<li>圆括号()。由逗号隔开的参数标识符。可为空，但必须有括号</li>
+<li>大括号{}组成函数体</li>
+</ol>
+<h4 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h4><p>函数参数分为显式传入的参数和隐式参数。显式参数直接在圆括号内写入形参，待函数调用时再传入实际的参数。隐式参数主要有arguments和this。</p>
+<p>arguments是所有参数的一个集合，有length属性。arguments.length的值是函数调用时传入的参数的个数。arguments是类数组结构，拥有数组的某些特性。能够对其进行遍历，但没有数组所具有的方法。</p>
+<p>函数在调用时，除了显式传入的参数，还有名为this的参数也传入函数。this参数引用了函数声明时所在的上下文对象。</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>函数的作用域是由function进行声明的，而不是代码块。作用域创建于代码块，但不终结于代码块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function demo()&#123;</div><div class="line">	var a = 1;</div><div class="line">&#125;</div><div class="line">console.log(a) //1</div></pre></td></tr></table></figure>
+<p>在函数的代码块之外，其声明的变量依然可用。函数的作用域要由函数所在的上下文决定。</p>
+<p>函数的作用域分为其自身的的作用域和其所在的作用域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var a1 = &apos;one&apos;;</div><div class="line">function outer()&#123;</div><div class="line">	var a2 = &apos;two&apos;;</div><div class="line">	console.log(a1)  //one</div><div class="line">	console.log(a3)  //undefined</div><div class="line">	</div><div class="line">	function inner()&#123;</div><div class="line">		var a3 = &apos;three&apos;;</div><div class="line">		console.log(a2)  //two</div><div class="line">		console.log(a1)  //undefined</div><div class="line">	&#125;</div><div class="line">	innner();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>函数内的代码能访问其函数所在的作用域和自身的作用域，不能访问其内部函数的作用域，也不能间隔访问其祖作用域。</p>
+<h4 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h4><p>函数的调用实际上有四种方式：</p>
+<ul>
+<li>作为函数进行调用，比如demo()</li>
+<li>作为方法进行调用,比如<code>var a={};a.b=function(){//do something}</code></li>
+<li>作为构造器进行调用，比如 <code>function F(){}; var p = new F()</code></li>
+<li>通过apply()和call()函数方法进行调用。</li>
+</ul>
+<p>前面两种调用都容易理解，主要解释一下构造器调用，apply和call看下一篇博文。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/24/函数(一)/" data-id="cj0op6nzs0002x50b9136k2gx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-再次出发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/22/再次出发/" class="article-date">
+  <time datetime="2017-03-22T14:18:21.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/再次出发/">再次出发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-回首过去"><a href="#1-回首过去" class="headerlink" title="1. 回首过去"></a>1. 回首过去</h3><h5 id="自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。"><a href="#自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。" class="headerlink" title="自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。"></a>自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。</h5><h3 id="2-活在当下"><a href="#2-活在当下" class="headerlink" title="2.活在当下"></a>2.活在当下</h3><h5 id="过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握："><a href="#过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握：" class="headerlink" title="过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握："></a>过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握：</h5><pre><code>- JS：掌握原理层次的东西，是前端开发的重中之重
+- CSS：学习一些技巧方面的东西
+- 框架：vue，react
+- 算法
+- 数据结构
+- 数据库
+- 软件工程：一些软件开发的基础性理论
+</code></pre><h3 id="3-遥望未来"><a href="#3-遥望未来" class="headerlink" title="3.遥望未来"></a>3.遥望未来</h3><h5 id="未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！"><a href="#未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！" class="headerlink" title="未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！"></a>未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！</h5>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/22/再次出发/" data-id="cj0op6nzp0001x50byl87ilsj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/24/对apply和call的理解/">对apply和call的理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/24/函数(一)/">函数(一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/再次出发/">再次出发</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 tmfpls<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
