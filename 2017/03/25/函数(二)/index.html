@@ -87,19 +87,13 @@
 
 
 
-<meta name="description" content="apply()和call()作为函数的方法，会改变函数的上下文，显式把其他对象作为函数的上下文。会改变函数内的this指向。
-12345678var a = 1;function origin()&amp;#123;	console.log(this.a) //调用origin()控制台输出1，实际为window.origin()，orign的上下文是window&amp;#125;var context=&amp;#1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对apply和call的理解">
-<meta property="og:url" content="http://yoursite.com/2017/03/24/对apply和call的理解/index.html">
+<meta property="og:title" content="函数(二)">
+<meta property="og:url" content="http://yoursite.com/2017/03/25/函数(二)/index.html">
 <meta property="og:site_name" content="Storm">
-<meta property="og:description" content="apply()和call()作为函数的方法，会改变函数的上下文，显式把其他对象作为函数的上下文。会改变函数内的this指向。
-12345678var a = 1;function origin()&amp;#123;	console.log(this.a) //调用origin()控制台输出1，实际为window.origin()，orign的上下文是window&amp;#125;var context=&amp;#1">
-<meta property="og:updated_time" content="2017-03-25T07:27:37.000Z">
+<meta property="og:updated_time" content="2017-03-25T07:31:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对apply和call的理解">
-<meta name="twitter:description" content="apply()和call()作为函数的方法，会改变函数的上下文，显式把其他对象作为函数的上下文。会改变函数内的this指向。
-12345678var a = 1;function origin()&amp;#123;	console.log(this.a) //调用origin()控制台输出1，实际为window.origin()，orign的上下文是window&amp;#125;var context=&amp;#1">
+<meta name="twitter:title" content="函数(二)">
 
 
 
@@ -127,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/24/对apply和call的理解/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/25/函数(二)/"/>
 
 
 
 
 
-  <title> 对apply和call的理解 | Storm </title>
+  <title> 函数(二) | Storm </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -252,7 +246,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/对apply和call的理解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/25/函数(二)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmfpls">
@@ -273,7 +267,7 @@
             
             
               
-                对apply和call的理解
+                函数(二)
               
             
           </h1>
@@ -288,8 +282,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T15:55:48+08:00">
-                2017-03-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-25T15:31:56+08:00">
+                2017-03-25
               </time>
             
 
@@ -324,14 +318,7 @@
       
 
       
-        <p>apply()和call()作为函数的方法，会改变函数的上下文，显式把其他对象作为函数的上下文。会改变函数内的<code>this</code>指向。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">function origin()&#123;</div><div class="line">	console.log(this.a) //调用origin()控制台输出1，实际为window.origin()，orign的上下文是window</div><div class="line">&#125;</div><div class="line"></div><div class="line">var context=&#123; a:2 &#125;</div><div class="line">//改变origin上下文</div><div class="line">origin.call(context) //控制台输出2,origin内的this指向context，origin的上下文为context</div></pre></td></tr></table></figure>
-<p>apply()和call()区别主要是参数的区别：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f1.call(f,a,b,c);</div><div class="line">f1.apply(f,[a,b,c]);</div></pre></td></tr></table></figure>
-<p>apply传入的参数是数组，call传入的参数是参数列表。传入的参数会作为以上<code>f1</code>函数的实参。当调用apply和call方法时，其实也相当于调用了函数。</p>
-<p>运用此方法，实现一个forEach函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function forEach(list,callback)&#123;</div><div class="line">	if (Array.isArray(list) === true &amp;&amp; typeof callback === &apos;function&apos;)&#123;	</div><div class="line">		for (var n=0;n&lt;list.length;n++)&#123;</div><div class="line">			callback.call(list[n],n) // 把callback内的this指向改为指向list[n],其上下文是list[n]</div><div class="line">		&#125;</div><div class="line">	&#125;else&#123;</div><div class="line">		console.log(&apos;error&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        
       
     </div>
 
@@ -367,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/24/函数(一)/" rel="next" title="函数(一）">
-                <i class="fa fa-chevron-left"></i> 函数(一）
+              <a href="/2017/03/24/对apply和call的理解/" rel="next" title="对apply和call的理解">
+                <i class="fa fa-chevron-left"></i> 对apply和call的理解
               </a>
             
           </div>
@@ -376,10 +363,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/25/函数(二)/" rel="prev" title="函数(二)">
-                函数(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
