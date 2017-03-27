@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,13 +100,13 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -129,7 +129,7 @@
   <title> Storm </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -151,7 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
    page-home 
  ">
     <div class="headband"></div>
@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
           </a>
         </li>
       
@@ -214,15 +214,49 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -252,7 +286,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmfpls">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -284,9 +318,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-25T15:31:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-25T15:31:56+08:00">
                 2017-03-25
               </time>
             
@@ -296,6 +330,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -324,7 +380,8 @@
       
         
           
-            <p>谈谈在JS中对作用域(scope)和闭包(closure)的理解。(bind()方法)</p>
+            <a id="more"></a>
+<p>谈谈在JS中对作用域(scope)和闭包(closure)的理解。(bind()方法)</p>
 
           
         
@@ -373,7 +430,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmfpls">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -405,9 +462,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T15:55:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T15:55:48+08:00">
                 2017-03-24
               </time>
             
@@ -417,6 +474,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -444,16 +523,14 @@
 
       
         
-          
-            <p>apply()和call()作为函数的方法，会改变函数的上下文，显式把其他对象作为函数的上下文。会改变函数内的<code>this</code>指向。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = 1;</div><div class="line">function origin()&#123;</div><div class="line">	console.log(this.a) //调用origin()控制台输出1，实际为window.origin()，orign的上下文是window</div><div class="line">&#125;</div><div class="line"></div><div class="line">var context=&#123; a:2 &#125;</div><div class="line">//改变origin上下文</div><div class="line">origin.call(context) //控制台输出2,origin内的this指向context，origin的上下文为context</div></pre></td></tr></table></figure>
-<p>apply()和call()区别主要是参数的区别：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f1.call(f,a,b,c);</div><div class="line">f1.apply(f,[a,b,c]);</div></pre></td></tr></table></figure>
-<p>apply传入的参数是数组，call传入的参数是参数列表。传入的参数会作为以上<code>f1</code>函数的实参。当调用apply和call方法时，其实也相当于调用了函数。</p>
-<p>运用此方法，实现一个forEach函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function forEach(list,callback)&#123;</div><div class="line">	if (Array.isArray(list) === true &amp;&amp; typeof callback === &apos;function&apos;)&#123;	</div><div class="line">		for (var n=0;n&lt;list.length;n++)&#123;</div><div class="line">			callback.call(list[n],n) // 把callback内的this指向改为指向list[n],其上下文是list[n]</div><div class="line">		&#125;</div><div class="line">	&#125;else&#123;</div><div class="line">		console.log(&apos;error&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
+          <p>apply()和call()作为函数的方法，会改变函数的上下文，显式把其他对象作为函数的上下文。会改变函数内的<code>this</code>指向。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/24/对apply和call的理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -500,7 +577,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmfpls">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -532,9 +609,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T15:48:32+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-24T15:48:32+08:00">
                 2017-03-24
               </time>
             
@@ -544,6 +621,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -571,42 +670,14 @@
 
       
         
-          
-            <p>函数是javascript的代码执行的模块化单元，了解函数是学习JS的基础中的基础。<br>函数式作为JS中的第一型对象，可以视为其他任意类型的JS对象，可被任何变量进行引用。</p>
-<h4 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h4><p>函数的创建是要通过函数字面量进行声明，主要有四个部分组成：</p>
-<ol>
-<li>function关键字</li>
-<li>可选的函数名称</li>
-<li>圆括号()。由逗号隔开的参数标识符。可为空，但必须有括号</li>
-<li>大括号{}组成函数体</li>
-</ol>
-<h4 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h4><p>函数参数分为显式传入的参数和隐式参数。显式参数直接在圆括号内写入形参，待函数调用时再传入实际的参数。隐式参数主要有arguments和this。函数可以接受任意数量的参数。在JS中，没有强制声明函数有多少个参数就得传入多少个参数，可以没有形参，调用时再传入多个参数。参数的实际使用要看函数的定义。</p>
-<p>arguments是所有参数的一个集合，有length属性。arguments.length的值是函数调用时传入的参数的个数。arguments是类数组结构，拥有数组的某些特性。能够对其进行遍历，但没有数组所具有的方法。</p>
-<p>函数在调用时，除了显式传入的参数，还有名为this的参数也传入函数。this参数引用了函数声明时所在的上下文对象。</p>
-<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>函数的作用域是由function进行声明的，而不是代码块。作用域创建于代码块，但不终结于代码块。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function demo()&#123;</div><div class="line">	var a = 1;</div><div class="line">&#125;</div><div class="line">console.log(a) //1</div></pre></td></tr></table></figure>
-<p>在函数的代码块之外，其声明的变量依然可用。函数的作用域要由函数所在的上下文决定。</p>
-<p>函数的作用域分为其自身的的作用域和其所在的作用域。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var a1 = &apos;one&apos;;</div><div class="line">function outer()&#123;</div><div class="line">	var a2 = &apos;two&apos;;</div><div class="line">	console.log(a1)  //one</div><div class="line">	console.log(a3)  //undefined</div><div class="line">	</div><div class="line">	function inner()&#123;</div><div class="line">		var a3 = &apos;three&apos;;</div><div class="line">		console.log(a2)  //two</div><div class="line">		console.log(a1)  //undefined</div><div class="line">	&#125;</div><div class="line">	innner();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>函数内的代码能访问其函数所在的作用域和自身的作用域，不能访问其内部函数的作用域，也不能间隔访问其祖作用域。</p>
-<h4 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h4><p>函数的调用实际上有四种方式：</p>
-<ul>
-<li>作为函数进行调用，比如demo()。其本质上也是方法调用，是在全局window的上下文中调用 <code>demo() === window.demo()</code></li>
-<li>作为方法进行调用,比如<code>var a={};a.b=function(){//do something}</code></li>
-<li>作为构造器进行调用，比如 <code>function F(){}; var p = new F()</code></li>
-<li>通过apply()和call()函数方法进行调用。</li>
-</ul>
-<p>前面两种调用都容易理解，主要解释一下构造器调用，apply和call看下一篇博文。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function F()&#123; //do something &#125;</div><div class="line">var f = new F() // 调用构造函数F()</div></pre></td></tr></table></figure>
-<p>构造函数同过<code>new</code>关键字进行调用，其会发生如下行为：</p>
-<ol>
-<li>创建一个新的空对象，上面的例子就是创造了对象<code>f</code>。可以在此对象内添加属性和方法，this指向创建的对象实例。</li>
-<li>新的对象实例作为this参数隐式的传递给构造函数，并成为构造函数的函数上下文。</li>
-<li>构造函数没有显式的返回值，新创建的对象作为构造函数的返回值进行返回。</li>
-</ol>
-<p>构建器函数的目的是当进行构造器调用时，会初始化创建新对象。当在构造器内添加方法和属性，调用构造器产生的新对象则会初始含有这些方法和属性，相当于构造器作为模板，以此模板不断复制新的对象，每个对象都独立，可以单独为每个对象添加新的方法和属性，互不干扰。</p>
-
-          
+          <p>函数是javascript的代码执行的模块化单元，了解函数是学习JS的基础中的基础。<br>函数式作为JS中的第一型对象，可以视为其他任意类型的JS对象，可被任何变量进行引用。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/24/函数(一)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -653,7 +724,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmfpls">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -685,9 +756,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T22:18:21+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T22:18:21+08:00">
                 2017-03-22
               </time>
             
@@ -697,6 +768,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/想法/" itemprop="url" rel="index">
+                    <span itemprop="name">想法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -724,16 +817,14 @@
 
       
         
-          
-            <h3 id="1-回首过去"><a href="#1-回首过去" class="headerlink" title="1. 回首过去"></a>1. 回首过去</h3><h5 id="自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。"><a href="#自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。" class="headerlink" title="自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。"></a>自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。</h5><h3 id="2-活在当下"><a href="#2-活在当下" class="headerlink" title="2.活在当下"></a>2.活在当下</h3><h5 id="过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握："><a href="#过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握：" class="headerlink" title="过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握："></a>过去的总是过去，虽时常幻想着能重来，能回到大学，回到高中，该有多好，绝不会如现在这般狼狈。但生活在继续，历史长河滚滚向前，一切都需自己掌握。现在要认清自己，找到自己的路，坚持自己梦想。不管现在是如何地苟且，诗和远方一直在心中。既定了自己要奔向前端之坑，则要好好的在当下努力，多看，多问，多总结。既要掌握前端的必备技能，也要学习软件开发的基础。现有如下的方面需要掌握：</h5><pre><code>- JS：掌握原理层次的东西，是前端开发的重中之重
-- CSS：学习一些技巧方面的东西
-- 框架：vue，react
-- 算法
-- 数据结构
-- 数据库
-- 软件工程：一些软件开发的基础性理论
-</code></pre><h3 id="3-遥望未来"><a href="#3-遥望未来" class="headerlink" title="3.遥望未来"></a>3.遥望未来</h3><h5 id="未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！"><a href="#未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！" class="headerlink" title="未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！"></a>未来实在自己的手上的。希望能在不知多远的将来，也能开发出有利于前端进步的东西。也希望自己掌握更多技能，交到更多志同道合的朋友。如果有可能，希望能够考研继续深造，在校园里更系统的学习计算机方面的知识。再次出发，就趁现在！</h5>
-          
+          <h3 id="1-回首过去"><a href="#1-回首过去" class="headerlink" title="1. 回首过去"></a>1. 回首过去</h3><h5 id="自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。"><a href="#自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。" class="headerlink" title="自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。"></a>自从2016年10月开始听说前端这个东西时，就产生了兴趣。又对当时的工作不满意，没有发展前景。自然而然，放弃当时的工作，投身到前端的大坑中。也是初生牛犊不怕虎，觉得前端也就那么回事，好好地闷头自学两三个月，还怕找不到工作。抱着这样的心态，开始了前端的学习。中间断断续续，也没有系统的好好研究，总是这里学一点，那里看一点。虽说知道是个怎么回事，但深层次的原理却一知半解。期间更是有一个月没有看书学习，让本不牢靠的基础更加不稳。如今到了现在，工作也辞了，前端工作也找不到，想着未来，心里是一片慌张和迷茫。</h5>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/22/再次出发/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -799,7 +890,7 @@
       <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/avatar.jpeg"
                alt="tmfpls" />
           <p class="site-author-name" itemprop="name">tmfpls</p>
            
@@ -812,13 +903,31 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -826,6 +935,17 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/biobibo" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
@@ -866,18 +986,38 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Pisces
   </a>
 </div>
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
         
       </div>
@@ -946,6 +1086,13 @@
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
 
   
@@ -989,6 +1136,132 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
 
 
 
