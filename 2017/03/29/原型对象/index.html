@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,12 +87,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Storm">
-<meta property="og:url" content="http://yoursite.com/categories/前端/index.html">
+<meta name="description" content="这次主要谈一谈对原型和原型链继承的理解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原型对象">
+<meta property="og:url" content="http://yoursite.com/2017/03/29/原型对象/index.html">
 <meta property="og:site_name" content="Storm">
+<meta property="og:description" content="这次主要谈一谈对原型和原型链继承的理解。">
+<meta property="og:updated_time" content="2017-03-29T09:22:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Storm">
+<meta name="twitter:title" content="原型对象">
+<meta name="twitter:description" content="这次主要谈一谈对原型和原型链继承的理解。">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/前端/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/29/原型对象/"/>
 
 
 
 
 
-  <title> 分类: 前端 | Storm </title>
+  <title> 原型对象 | Storm </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -151,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,103 +273,203 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        前端
-        <small>分类</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/29/原型对象/" itemprop="url">
-              
-                <span itemprop="name">原型对象</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-29T14:05:13+08:00"
-              content="2017-03-29" >
-          03-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/24/对apply和call的理解/" itemprop="url">
-              
-                <span itemprop="name">对apply和call的理解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-24T15:55:48+08:00"
-              content="2017-03-24" >
-          03-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/24/函数(一)/" itemprop="url">
-              
-                <span itemprop="name">函数(一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-24T15:48:32+08:00"
-              content="2017-03-24" >
-          03-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/原型对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tmfpls">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Storm">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                原型对象
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T14:05:13+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这次主要谈一谈对原型和原型链继承的理解。</p>
+<a id="more"></a>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>所有的函数在初始化的时候都有一个prototype属性，初始值是一个空对象。函数在作为构造器的时候，prototype属性发挥的作用才更大。</p>
+<p>构造函数的实例初始化可以在构造器内绑定操作，也可以在构造器的原型上绑定操作。两种方式存在优先级。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Learn()&#123;</div><div class="line">	this.study=function()&#123;</div><div class="line">		console.log(&apos;good!&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Learn.prototype.study=function()&#123;</div><div class="line">	console.log(&apos;nice!&apos;)</div><div class="line">&#125;</div><div class="line">let storm = new Learn();</div><div class="line">storm.study() //good!</div></pre></td></tr></table></figure>
+<p>从代码可以看出，在 构造器内绑定的操作优先级高于在原型上绑定的操作。</p>
+<p>当通过构造器创建一个实例对象，我们要引用实例对象上的一个属性时，首先查找实例对象上是否有该属性，有则返回，没有的话则通过实例对象上的constructor属性指向其构造器，再通过构造器的prototype属性指向prototype原型对象，在原型对象上查找该属性，有则返回，没有则该属性值为undefined。总结为：查询实例对象属性引用时，首先查询对象自身，如果没有，则才在原型上查找。</p>
+<p>我们如何确定一个对象的构造器，可通过以下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function A()&#123; &#125;; //创建构造器A</div><div class="line">let a = new A();</div><div class="line">console.log(typeof a === &apos;object&apos;) // true,只能确定a是一个对象</div><div class="line">console.log(a instanceof A) //true, 可以确定a的构造器是A</div><div class="line">console.log(a.constructor) //A(),每个构造器实例化的对象都含有一个隐式属性constructor，其值为构造器</div><div class="line">console.log(A.prototype) // Object &#123; &#125;,构造器A的原型是一个对象</div><div class="line">console.log(A.prototype.constructor) //A()&#123; &#125;,构造器的原型对象的constructor属性指向自身构造器</div><div class="line">console.log(A.constructor) //function Function()&#123; &#125;,每个构造函数的constructor都指向Function构造器</div></pre></td></tr></table></figure>
+<p>当在进行构造器调用时，如果调用者没有引用关键字new，则会产生错误并使后续代码紊乱，可以如下修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function A(old,new)&#123;</div><div class="line">	if (!(this instanceof arguments.callee))&#123;  //arguments.callee得到当前执行函数的引用，在严格模式下不能使用。</div><div class="line">		return new A(old,new);</div><div class="line">	&#125;</div><div class="line">	// do something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样就不怕忘了new关键字了！省点时间多看片。</p>
+<h4 id="原型链与继承"><a href="#原型链与继承" class="headerlink" title="原型链与继承"></a>原型链与继承</h4><p>函数原型是一个对象，可以为其添加属性和方法。<br>要实现继承，可以通过原型链，而原型链创建的最好方式是，一个构造器的原型对象是另一个构造器的实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//创建构造器A</div><div class="line">function A()&#123; </div><div class="line">	this.go=function()&#123;</div><div class="line">		console.log(&apos;one&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">A.prototype.do=function()&#123;</div><div class="line">	console.log(&apos;two&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//创建构造器B</div><div class="line">function B()&#123; &#125;</div><div class="line">//实现继承</div><div class="line">B.prototype = new A();</div><div class="line"></div><div class="line">let b = new B();</div><div class="line">b.go(); // one</div><div class="line">b.do(); // two</div><div class="line"></div><div class="line">console.log(b instanceof B); // true</div><div class="line">console.log(b instanceof A) // true</div></pre></td></tr></table></figure>
+<p>一个实例对象的创建，包含了构造器内的操作，同时也包括的了构造器原型上的操作。当另一构造器原型引用此实例时，也就引用了原构造器内的操作和其原型内的操作，也就实现了继承。同时此构造器的实例也是原构造器的实例。而这种实现的继承是是实时更新的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/24/对apply和call的理解/" rel="next" title="对apply和call的理解">
+                <i class="fa fa-chevron-left"></i> 对apply和call的理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -373,6 +477,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -392,8 +500,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -466,6 +583,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链与继承"><span class="nav-number">2.</span> <span class="nav-text">原型链与继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -600,6 +733,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
