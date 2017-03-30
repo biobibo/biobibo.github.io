@@ -89,13 +89,13 @@
 
 <meta name="description" content="这次主要谈一谈对原型和原型链继承的理解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原型对象">
+<meta property="og:title" content="类和原型">
 <meta property="og:url" content="http://yoursite.com/2017/03/29/原型对象/index.html">
 <meta property="og:site_name" content="Storm">
 <meta property="og:description" content="这次主要谈一谈对原型和原型链继承的理解。">
-<meta property="og:updated_time" content="2017-03-29T09:22:46.000Z">
+<meta property="og:updated_time" content="2017-03-30T15:33:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原型对象">
+<meta name="twitter:title" content="类和原型">
 <meta name="twitter:description" content="这次主要谈一谈对原型和原型链继承的理解。">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title> 原型对象 | Storm </title>
+  <title> 类和原型 | Storm </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -304,7 +304,7 @@
             
             
               
-                原型对象
+                类和原型
               
             
           </h2>
@@ -397,6 +397,18 @@
 <h4 id="原型链与继承"><a href="#原型链与继承" class="headerlink" title="原型链与继承"></a>原型链与继承</h4><p>函数原型是一个对象，可以为其添加属性和方法。<br>要实现继承，可以通过原型链，而原型链创建的最好方式是，一个构造器的原型对象是另一个构造器的实例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//创建构造器A</div><div class="line">function A()&#123; </div><div class="line">	this.go=function()&#123;</div><div class="line">		console.log(&apos;one&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">A.prototype.do=function()&#123;</div><div class="line">	console.log(&apos;two&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//创建构造器B</div><div class="line">function B()&#123; &#125;</div><div class="line">//实现继承</div><div class="line">B.prototype = new A();</div><div class="line"></div><div class="line">let b = new B();</div><div class="line">b.go(); // one</div><div class="line">b.do(); // two</div><div class="line"></div><div class="line">console.log(b instanceof B); // true</div><div class="line">console.log(b instanceof A) // true</div></pre></td></tr></table></figure>
 <p>一个实例对象的创建，包含了构造器内的操作，同时也包括的了构造器原型上的操作。当另一构造器原型引用此实例时，也就引用了原构造器内的操作和其原型内的操作，也就实现了继承。同时此构造器的实例也是原构造器的实例。而这种实现的继承是是实时更新的。</p>
+<h4 id="类和原型"><a href="#类和原型" class="headerlink" title="类和原型"></a>类和原型</h4><p>通过构造函数的原型对象，可以实现继承。从某种意义上来说，定义构造函数就是定义类。而原型对象是类的唯一标识：当且仅当两个对象继承自同一个原型对象时，他们才是属于同一个类的实例。</p>
+<p>而实例对象的构造函数不能作为类的唯一标识，因为构造函数也可能是继承自其它的构造函数。但构造函数可以作为类的公共标识，基本上遇到构造函数，就可以认为是一个类。</p>
+<p>instanceof运算符的检测并不会检测到一个实例对象是否由一个构造函数初始化而来，而是检测是否继承自原型对象(是否存在继承关系)。</p>
+<p>isPrototypeOf运算符检测的是一个实例对象是否继承自该原型对象，其用法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function A() &#123; &#125;</div><div class="line">function B() &#123; &#125;</div><div class="line">function C() &#123; &#125;</div><div class="line"></div><div class="line">B.prototype = new A();</div><div class="line">C.prototype = new B();</div><div class="line"></div><div class="line">let c = new C();</div><div class="line">console.log(A.prototype.isPrototypeOf(c))  //true</div></pre></td></tr></table></figure>
+<p>在原型链中，上游的实例对象不能来确认下游的原型对象是其继承的。</p>
+<p>JS中的类牵扯到三种对象：</p>
+<ol>
+<li>构造函数对象：定义了类的名字，在其中添加的属性都是类字段或类方法。</li>
+<li>原型对象：所有类的实例都继承自原型对象。</li>
+<li>实例对象：每个实例对象都是独立对象。在实例对象内添加的方法不会被其他实例共享。添加的属性是实例字段或实例方法。</li>
+</ol>
 
       
     </div>
@@ -593,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链与继承"><span class="nav-number">2.</span> <span class="nav-text">原型链与继承</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链与继承"><span class="nav-number">2.</span> <span class="nav-text">原型链与继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类和原型"><span class="nav-number">3.</span> <span class="nav-text">类和原型</span></a></li></ol></div>
             
 
           </div>

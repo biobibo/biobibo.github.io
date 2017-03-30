@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/03/24/函数(一)/index.html">
 <meta property="og:site_name" content="Storm">
 <meta property="og:description" content="函数是javascript的代码执行的模块化单元，了解函数是学习JS的基础中的基础。函数式作为JS中的第一型对象，可以视为其他任意类型的JS对象，可被任何变量进行引用。">
-<meta property="og:updated_time" content="2017-03-27T09:14:25.000Z">
+<meta property="og:updated_time" content="2017-03-30T10:02:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数(一）">
 <meta name="twitter:description" content="函数是javascript的代码执行的模块化单元，了解函数是学习JS的基础中的基础。函数式作为JS中的第一型对象，可以视为其他任意类型的JS对象，可被任何变量进行引用。">
@@ -410,9 +410,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">function F()&#123; //do something &#125;</div><div class="line">var f = new F() // 调用构造函数F()</div></pre></td></tr></table></figure>
 <p>构造函数同过<code>new</code>关键字进行调用，其会发生如下行为：</p>
 <ol>
-<li>创建一个新的空对象，上面的例子就是创造了对象<code>f</code>。可以在此对象内添加属性和方法，this指向创建的对象实例。</li>
+<li>创建一个新的空对象，上面的例子就是创造了对象 <code>f</code> 。可以在此对象内添加属性和方法，this指向创建的对象实例。</li>
 <li>新的对象实例作为this参数隐式的传递给构造函数，并成为构造函数的函数上下文。</li>
-<li>构造函数没有显式的返回值，新创建的对象作为构造函数的返回值进行返回。</li>
+<li>构造函数没有显式的返回值，构造函数会作为这个对象的方法来调用一次，新创建的对象作为构造函数的返回值进行返回。</li>
 </ol>
 <p>构建器函数的目的是当进行构造器调用时，会初始化创建新对象。当在构造器内添加方法和属性，调用构造器产生的新对象则会初始含有这些方法和属性，相当于构造器作为模板，以此模板不断复制新的对象，每个对象都独立，可以单独为每个对象添加新的方法和属性，互不干扰。</p>
 
