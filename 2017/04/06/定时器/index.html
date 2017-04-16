@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="这次主要谈一谈对原型继承和类的理解。">
+<meta name="description" content="定时器是在设置一定时间后执行回调函数的功能。定时器函数作为全局window的方法,是全局函数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类和原型">
-<meta property="og:url" content="http://yoursite.com/2017/03/29/原型对象/index.html">
+<meta property="og:title" content="定时器">
+<meta property="og:url" content="http://yoursite.com/2017/04/06/定时器/index.html">
 <meta property="og:site_name" content="Storm">
-<meta property="og:description" content="这次主要谈一谈对原型继承和类的理解。">
-<meta property="og:updated_time" content="2017-03-31T09:27:50.000Z">
+<meta property="og:description" content="定时器是在设置一定时间后执行回调函数的功能。定时器函数作为全局window的方法,是全局函数。">
+<meta property="og:updated_time" content="2017-04-07T08:29:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="类和原型">
-<meta name="twitter:description" content="这次主要谈一谈对原型继承和类的理解。">
+<meta name="twitter:title" content="定时器">
+<meta name="twitter:description" content="定时器是在设置一定时间后执行回调函数的功能。定时器函数作为全局window的方法,是全局函数。">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/29/原型对象/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/06/定时器/"/>
 
 
 
 
 
-  <title> 类和原型 | Storm </title>
+  <title> 定时器 | Storm </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/29/原型对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/06/定时器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmfpls">
@@ -304,7 +304,7 @@
             
             
               
-                类和原型
+                定时器
               
             
           </h2>
@@ -319,8 +319,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-29T14:05:13+08:00">
-                2017-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-06T16:10:28+08:00">
+                2017-04-06
               </time>
             
 
@@ -382,39 +382,33 @@
       
 
       
-        <p>这次主要谈一谈对原型继承和类的理解。</p>
+        <p>定时器是在设置一定时间后执行回调函数的功能。定时器函数作为全局window的方法,是全局函数。</p>
 <a id="more"></a>
-<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>所有的函数在初始化的时候都有一个prototype属性，初始值是一个空对象。函数在作为构造器的时候，prototype属性发挥的作用才更大。</p>
-<p>构造函数的实例初始化可以在构造器内绑定操作，也可以在构造器的原型上绑定操作。两种方式存在优先级。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function Learn()&#123;</div><div class="line">	this.study=function()&#123;</div><div class="line">		console.log(&apos;good!&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Learn.prototype.study=function()&#123;</div><div class="line">	console.log(&apos;nice!&apos;)</div><div class="line">&#125;</div><div class="line">let storm = new Learn();</div><div class="line">storm.study() //good!</div></pre></td></tr></table></figure>
-<p>从代码可以看出，在 构造器内绑定的操作优先级高于在原型上绑定的操作。</p>
-<p>当通过构造器创建一个实例对象，我们要引用实例对象上的一个属性时，首先查找实例对象上是否有该属性，有则返回，没有的话则通过实例对象上的constructor属性指向其构造器，再通过构造器的prototype属性指向prototype原型对象，在原型对象上查找该属性，有则返回，没有则该属性值为undefined。总结为：查询实例对象属性引用时，首先查询对象自身，如果没有，则才在原型上查找。</p>
-<p>我们如何确定一个对象的构造器，可通过以下方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function A()&#123; &#125;; //创建构造器A</div><div class="line">let a = new A();</div><div class="line">console.log(typeof a === &apos;object&apos;) // true,只能确定a是一个对象</div><div class="line">console.log(a instanceof A) //true, 可以确定a的构造器是A</div><div class="line">console.log(a.constructor) //A(),每个构造器实例化的对象都含有一个隐式属性constructor，其值为构造器</div><div class="line">console.log(A.prototype) // Object &#123; &#125;,构造器A的原型是一个对象</div><div class="line">console.log(A.prototype.constructor) //A()&#123; &#125;,构造器的原型对象的constructor属性指向自身构造器</div><div class="line">console.log(A.constructor) //function Function()&#123; &#125;,每个构造函数的constructor都指向Function构造器</div></pre></td></tr></table></figure>
-<p>当在进行构造器调用时，如果调用者没有引用关键字new，则会产生错误并使后续代码紊乱，可以如下修改：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function A(old,new)&#123;</div><div class="line">	if (!(this instanceof arguments.callee))&#123;  //arguments.callee得到当前执行函数的引用，在严格模式下不能使用。</div><div class="line">		return new A(old,new);</div><div class="line">	&#125;</div><div class="line">	// do something</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这样就不怕忘了new关键字了！省点时间多看片。</p>
-<h4 id="原型链与继承"><a href="#原型链与继承" class="headerlink" title="原型链与继承"></a>原型链与继承</h4><p>函数原型是一个对象，可以为其添加属性和方法。<br>要实现继承，可以通过原型链，而原型链创建的最好方式是，一个构造器的原型对象是另一个构造器的实例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">//创建构造器A</div><div class="line">function A()&#123; </div><div class="line">	this.go=function()&#123;</div><div class="line">		console.log(&apos;one&apos;)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">A.prototype.do=function()&#123;</div><div class="line">	console.log(&apos;two&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">//创建构造器B</div><div class="line">function B()&#123; &#125;</div><div class="line">//实现继承</div><div class="line">B.prototype = new A();</div><div class="line"></div><div class="line">let b = new B();</div><div class="line">b.go(); // one</div><div class="line">b.do(); // two</div><div class="line"></div><div class="line">console.log(b instanceof B); // true</div><div class="line">console.log(b instanceof A) // true</div></pre></td></tr></table></figure>
-<p>一个实例对象的创建，包含了构造器内的操作，同时也包括的了构造器原型上的操作。当另一构造器原型引用此实例时，也就引用了原构造器内的操作和其原型内的操作，也就实现了继承。同时此构造器的实例也是原构造器的实例。而这种实现的继承是是实时更新的。</p>
-<h4 id="类和原型"><a href="#类和原型" class="headerlink" title="类和原型"></a>类和原型</h4><p>通过构造函数的原型对象，可以实现继承。从某种意义上来说，定义构造函数就是定义类。类的所有实例对象都是从同一个原型对象上继承属性，所以原型对象是类的唯一标识：当且仅当两个对象继承自同一个原型对象时，他们才是属于同一个类的实例。</p>
-<p>而实例对象的构造函数不能作为类的唯一标识，因为构造函数也可能是继承自其它的构造函数。但构造函数可以作为类的公共标识，基本上遇到构造函数，就可以认为是一个类。</p>
-<p>instanceof运算符的检测并不会检测到一个实例对象是否由一个构造函数初始化而来，而是检测是否继承自原型对象(是否存在继承关系)。</p>
-<p>isPrototypeOf运算符检测的是一个实例对象是否继承自该原型对象，其用法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function A() &#123; &#125;</div><div class="line">function B() &#123; &#125;</div><div class="line">function C() &#123; &#125;</div><div class="line"></div><div class="line">B.prototype = new A();</div><div class="line">C.prototype = new B();</div><div class="line"></div><div class="line">let c = new C();</div><div class="line">console.log(A.prototype.isPrototypeOf(c))  //true</div></pre></td></tr></table></figure>
-<p>在原型链中，上游的实例对象不能来确认下游的原型对象是其继承的。</p>
-<p>JS中的类牵扯到三种对象：</p>
+<h4 id="定时器和线程"><a href="#定时器和线程" class="headerlink" title="定时器和线程"></a>定时器和线程</h4><p>JavaScript是单线程执行的，这意味着在同一时间JS只能执行一个任务，而其他的任务需要排队，等到线程把当前任务执行完毕且空闲时，再从任务队列中选取任务执行。而任务队列的任务优先级根据不同的浏览器会有不同的算法。浏览器负责任务排序，指定某个时间点执行某个任务的优先级。</p>
+<p>任务队列的添加时按照不同的代码被触发时的时间先后逐渐的添加到队列中。而定时器的时间设置则是指在指定时间后把要执行的的代码添加的任务队列中，而不是指定时间后立即执行代码。可能当定时器任务添加到队列中时，前面还有其他任务，只有当前面的任务执行完毕，线程空闲，才会执行定时器任务。</p>
+<h4 id="定时器函数"><a href="#定时器函数" class="headerlink" title="定时器函数"></a>定时器函数</h4><p>定时器有四个方法，皆为window的方法。</p>
 <ol>
-<li>构造函数对象：定义了类的名字，在其中添加的属性都是类字段或类方法。</li>
-<li>原型对象：所有类的实例都继承自原型对象。</li>
-<li>实例对象：每个实例对象都是独立对象。在实例对象内添加的方法不会被其他实例共享。添加的属性是实例字段或实例方法。</li>
+<li>setTimeout(callback,time)</li>
+<li>clearTimeout(ID)   ID为setTimeout返回的标识</li>
+<li>setInterval(callback,time)</li>
+<li>clearInterval(ID) ID 为setInterval返回的标识</li>
 </ol>
-<p>在JS定义一个类可以分成三步算法：</p>
+<p>setTimeout函数在指定时间后把回调函数添加到任务队列中，且只添加一次。如果setTimeout函数还未被线程执行，可以使用clearTimeout函数取消任务队列中setTimeout函数。</p>
+<p>setInterval函数是在指定间隔时间后重复添加回调函数到任务队列中，如果任务队列有相同的setInterval函数实例，则不会添加相同实例。clearInterval函数可以取消任务队列中setInterval函数。tip：指定延迟时间会包含执行时间</p>
+<p>setInterval函数的间隔等待时间可能会包含其回调函数的执行时间，如果执行时间比间隔时间大，在上一个setInterval函数执行期间，下一个setInterval函数会添加到任务队列中，则会setInterval函数执行完一个，会立即执行下一个。则会觉得其间隔会被跳过，没有达到预期目的。为了避免这种情况，可以使用链式setTimeoout():</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">setTimeout(function()&#123;</div><div class="line">	//do something</div><div class="line">	setTimeout(arguments.callee,time)  //arguments.callee指向为当前执行函数的引用</div><div class="line">&#125;,time)</div></pre></td></tr></table></figure>
+<h4 id="定时器的其他用处"><a href="#定时器的其他用处" class="headerlink" title="定时器的其他用处"></a>定时器的其他用处</h4><h5 id="处理需要长时间运行的程序"><a href="#处理需要长时间运行的程序" class="headerlink" title="处理需要长时间运行的程序"></a>处理需要长时间运行的程序</h5><p>如果一段代码运行时间过长，浏览器会无法及时响应，会阻塞其他操作，导致用户体验变差。我们可以通过定时器来解决，可以把代码分解成各个部分，分解成不会让浏览器无法响应的碎片。</p>
+<p>example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">var rowCount = 200000;</div><div class="line">var divideInto = 4;</div><div class="line">var chunkSize = rowCount/divideInto;</div><div class="line">var iteration = 0;</div><div class="line"></div><div class="line">var table = doucment.getElementsByTagName(&apos;tbody&apos;)[0];</div><div class="line">setTimeout(function generateRows()&#123;</div><div class="line">	//分块操作</div><div class="line">	var base = (chunkSize) * iteration;</div><div class="line">	for (var i = 0; i&lt;chunkSize;i++)&#123;</div><div class="line">		var tr = document.createElement(&apos;tr&apos;);</div><div class="line">		for (var t =0;t &lt; 6;t++)&#123;</div><div class="line">			var td = document.createElement(&apos;td&apos;);</div><div class="line">			td.appendChild(document.createTextNode((i+base)+&apos;,&apos;+t+&apos;,&apos;+iteration));</div><div class="line">			tr.appendChild(td);</div><div class="line">		&#125;</div><div class="line">		table.appendChild(tr);</div><div class="line">	&#125;</div><div class="line">	// 继续执行下一块操作</div><div class="line">	iteration++;</div><div class="line">	if (iteration &lt; divideInto)&#123;</div><div class="line">		setTimeout(generateRows,0);</div><div class="line">	&#125;</div><div class="line">&#125;,0)</div></pre></td></tr></table></figure>
+<h5 id="中央定时器控制"><a href="#中央定时器控制" class="headerlink" title="中央定时器控制"></a>中央定时器控制</h5><p>如果使用的定时器过多，会导致浏览器增加垃圾回收任务，可能会在不同浏览器中造成卡顿。而使用中央定时器控制技术可减少这种状况。现在的动画引擎很多都使用这种技术。</p>
+<p>中央定时器控制的特点：</p>
 <ol>
-<li>定义一个构造函数，在函数中定义实例对象的属性的初始化操作。</li>
-<li>在构造函数的原型对象中定义实例的方法。</li>
-<li>定义构造函数的类方法和类属性。</li>
+<li>每个页面在同一时间只需要运行一个定时器</li>
+<li>可以暂停或回复定时器</li>
+<li>容易删除回调函数</li>
 </ol>
+<p>ezample:管理多个函数，每个函数处理不同事物</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">//定时器控制对象</div><div class="line">var timers = &#123;</div><div class="line">	//记录状态</div><div class="line">	timeID:0,</div><div class="line">	timers:[],</div><div class="line">	//添加处理函数</div><div class="line">	add: function (fn)&#123;</div><div class="line">		this.timers.push(fn);</div><div class="line">	&#125;</div><div class="line">	//开启定时器的函数</div><div class="line">	start: function ()&#123;</div><div class="line">		if (this.timeID) return;</div><div class="line">		//闭包</div><div class="line">		(function runNext()&#123;</div><div class="line">			if (timers.timers.lenfth &gt; 0 )&#123;</div><div class="line">				for (var i =0;i&lt;timers.timers.length;i++)&#123;</div><div class="line">					//处理函数返回false，则删除</div><div class="line">					if (timers.timers[i]() === false)&#123;</div><div class="line">						timers.timers.splice(i,1);</div><div class="line">						i--;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">				遍历完后，再一次执行runNext</div><div class="line">				timers.timerID = setTimeout(runNext,0);</div><div class="line">			&#125;</div><div class="line">		&#125;)();</div><div class="line">	&#125;，</div><div class="line">	//停止定时器函数</div><div class="line">	stop: function ()&#123;</div><div class="line">		clearTimeout(this.timeID);</div><div class="line">		this.timeID = 0;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -457,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/24/对apply和call的理解/" rel="next" title="对apply和call的理解">
-                <i class="fa fa-chevron-left"></i> 对apply和call的理解
+              <a href="/2017/03/29/原型和类/" rel="next" title="类和原型">
+                <i class="fa fa-chevron-left"></i> 类和原型
               </a>
             
           </div>
@@ -543,7 +537,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -611,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链与继承"><span class="nav-number">2.</span> <span class="nav-text">原型链与继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类和原型"><span class="nav-number">3.</span> <span class="nav-text">类和原型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器和线程"><span class="nav-number">1.</span> <span class="nav-text">定时器和线程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器函数"><span class="nav-number">2.</span> <span class="nav-text">定时器函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定时器的其他用处"><span class="nav-number">3.</span> <span class="nav-text">定时器的其他用处</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#处理需要长时间运行的程序"><span class="nav-number">3.1.</span> <span class="nav-text">处理需要长时间运行的程序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中央定时器控制"><span class="nav-number">3.2.</span> <span class="nav-text">中央定时器控制</span></a></li></ol></li></ol></div>
             
 
           </div>
