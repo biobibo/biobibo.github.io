@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,CSS," />
 
 
 
@@ -87,13 +87,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="这一篇博文主要来谈谈如何用JS操作CSS。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="脚本化CSS">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/脚本化CSS/index.html">
 <meta property="og:site_name" content="Storm">
-<meta property="og:updated_time" content="2017-03-27T07:43:30.000Z">
+<meta property="og:description" content="这一篇博文主要来谈谈如何用JS操作CSS。">
+<meta property="og:updated_time" content="2017-04-21T06:26:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="脚本化CSS">
+<meta name="twitter:description" content="这一篇博文主要来谈谈如何用JS操作CSS。">
 
 
 
@@ -121,19 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/脚本化CSS/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    分类 | Storm
-  
-</title>
+  <title> 脚本化CSS | Storm </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -158,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -277,25 +274,216 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h2 class="post-title" itemprop="name headline">分类</h2>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/脚本化CSS/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tmfpls">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Storm">
+    </span>
 
     
-    
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 2 个分类
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                脚本化CSS
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T13:41:38+08:00">
+                2017-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/想法/">想法</a><span class="category-list-count">1</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这一篇博文主要来谈谈如何用JS操作CSS。</p>
+<a id="more"></a>
+<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>元素的样式包括标签内的style属性(内联样式)、样式表、style标签样式。内联样式的优先级最高，即使其他样式使用了！important规则也没用。</p>
+<h4 id="特性-Attribute-和属性-Property"><a href="#特性-Attribute-和属性-Property" class="headerlink" title="特性(Attribute)和属性(Property)"></a>特性(Attribute)和属性(Property)</h4><p>当想要获取元素的特性时，我们可以通过getAttribute()和元素对象的属性引用两种方式来获取：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">elm.getAttribute(&apos;id&apos;); //通过方法获取</div><div class="line">elm.setAttribute(&apos;id&apos;,&apos;demo&apos;) //通过方法设置</div><div class="line">var sheet = elm.id;	//通过元素对象获取</div><div class="line">elm.id = &apos;demo&apos; ; //通过元素对象设置</div></pre></td></tr></table></figure>
+<p>如果我们通过以上方式改变元素的属性时，其中一种的改变设置也会影响另一种对元素属性的获取。换句话说：设置特性的值，也会改变属性的值。</p>
+<p>当获取属性或特性时，有一些注意事项：</p>
+<ol>
+<li>跨浏览器命名。在不同浏览器间，获取特性的名称可能不同，比如大多数浏览器可以通过class获取class值，但在IE中要通过className来获取class值。</li>
+<li>命名限制。通过特性方法来对元素特性命名比较自由，而通过元素对象点标识符来设置属性时，则要符合标识符命名规则。</li>
+<li>XML和HTML之间的差异。</li>
+<li>自定义特性的行为。自定义的特性要通过特性方法来访问。而通过属性的方式能访问原生属性。</li>
+<li>性能。属性的访问速度比特性方法的访问速度要快。</li>
+</ol>
+<h4 id="脚本化内联样式"><a href="#脚本化内联样式" class="headerlink" title="脚本化内联样式"></a>脚本化内联样式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">elm.style.color = &apos;#121212&apos;;</div><div class="line">elm.style.fontSize = 18 + &apos;px&apos;;</div><div class="line">elm.style.fontFamily = &apos;sans-serif&apos;;</div><div class="line">elm.style.cssFloat = &apos;left&apos;;</div></pre></td></tr></table></figure>
+<p>脚本化CSS一般都直接访问标签内的style对象，而对象内的属性要用小驼峰式命名，而属性值都为字符串。有一些属性在JS是保留字，其属性名要有特殊的命名，比如float属性要写为cssFloat。</p>
+<p>同时，有些属性值必须带有单位，可以是数字加上字符串单位。</p>
+<p>有时要访问元素的高度和宽度时，可以使用offsetWidth和offsetHeight。但这两个属性同时包括元素的边框宽度和内边距的宽度。</p>
+<h4 id="计算样式"><a href="#计算样式" class="headerlink" title="计算样式"></a>计算样式</h4><p> 元素的计算样式是一组属性值，是元素实际显示时所使用的样式。计算样式只读，用CSSStyleDeclaration对象表示。</p>
+<p> 我们可以用window.getComputedStyle(elm,’’)方法得到元素的计算样式。返回的是CSSStyleDeclaration对象。此方法不计算复合属性，比如border、margin。计算样式的值时绝对值，百分比、名称属性值或点之类的相对单位都会转为绝对值。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var e = document.getElementById(&apos;demo&apos;);</div><div class="line">var Estyle = window.getComputedStyle(e,&quot;&quot;); //返回CSSStyleDeclaration对象</div><div class="line">var color = Estyle.color; // 通过Estyle对象获取颜色值</div></pre></td></tr></table></figure>
+<h4 id="脚本化CSS类"><a href="#脚本化CSS类" class="headerlink" title="脚本化CSS类"></a>脚本化CSS类</h4><p> 我们可以通过设置标签的class属性值，来改变元素的一组样式。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">.demo1&#123;</div><div class="line">	font-size:20px;</div><div class="line">	color: blue;</div><div class="line">&#125;</div><div class="line">.demo2&#123;</div><div class="line">background-color:red;</div><div class="line">margin-top:20px;</div><div class="line">&#125;</div><div class="line"></div><div class="line"> var e = document.getElementById(&apos;app&apos;);</div><div class="line"> e.className = &apos;demo&apos;1;</div><div class="line"> e.setAttribute(&apos;class&apos;,&apos;demo1&apos;) //另一种方式实现</div><div class="line"> //如果有多个类，设置className会覆盖前面的类，可使用classList属性,classList属性</div><div class="line"> //有5个方法：add(), remove(), toggle(), contains(), item()</div><div class="line"> e.classList.add(&apos;demo2&apos;)</div></pre></td></tr></table></figure>
+<h4 id="脚本化样式表"><a href="#脚本化样式表" class="headerlink" title="脚本化样式表"></a>脚本化样式表</h4><p>如果需要用户操作页面的样式，则需要动态的操作样式表。<br>我们可以通过document.styleSheets类数组对象来操作，其中含有CSSStyleSheet对象元素，表示与文档关联在一起的样式表。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/定时器/" rel="next" title="定时器">
+                <i class="fa fa-chevron-left"></i> 定时器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/20/脚本化文档/" rel="prev" title="脚本化文档">
+                脚本化文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
   </div>
 
 
@@ -304,6 +492,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -323,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -397,6 +598,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性-Attribute-和属性-Property"><span class="nav-number">2.</span> <span class="nav-text">特性(Attribute)和属性(Property)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本化内联样式"><span class="nav-number">3.</span> <span class="nav-text">脚本化内联样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#计算样式"><span class="nav-number">4.</span> <span class="nav-text">计算样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本化CSS类"><span class="nav-number">5.</span> <span class="nav-text">脚本化CSS类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本化样式表"><span class="nav-number">6.</span> <span class="nav-text">脚本化样式表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -531,6 +748,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
