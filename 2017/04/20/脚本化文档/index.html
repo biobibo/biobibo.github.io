@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,13 +87,37 @@
 
 
 
+<meta name="description" content="这次主要记录对脚本化文档的学习。包括有以下内容：
+
+在文档中查询元素并选取
+对文档进行节点遍历，找到文档元素的祖先、兄弟、和后代元素。
+查询文档元素的属性并设置
+查询、修改、设置文档内容
+修改文档结构
+HTML表单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="脚本化文档">
 <meta property="og:url" content="http://yoursite.com/2017/04/20/脚本化文档/index.html">
 <meta property="og:site_name" content="Storm">
-<meta property="og:updated_time" content="2017-04-20T05:42:10.000Z">
+<meta property="og:description" content="这次主要记录对脚本化文档的学习。包括有以下内容：
+
+在文档中查询元素并选取
+对文档进行节点遍历，找到文档元素的祖先、兄弟、和后代元素。
+查询文档元素的属性并设置
+查询、修改、设置文档内容
+修改文档结构
+HTML表单">
+<meta property="og:updated_time" content="2017-05-03T15:42:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="脚本化文档">
+<meta name="twitter:description" content="这次主要记录对脚本化文档的学习。包括有以下内容：
+
+在文档中查询元素并选取
+对文档进行节点遍历，找到文档元素的祖先、兄弟、和后代元素。
+查询文档元素的属性并设置
+查询、修改、设置文档内容
+修改文档结构
+HTML表单">
 
 
 
@@ -327,6 +351,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -357,7 +403,64 @@
       
 
       
-        
+        <p>这次主要记录对脚本化文档的学习。包括有以下内容：</p>
+<ol>
+<li>在文档中查询元素并选取</li>
+<li>对文档进行节点遍历，找到文档元素的祖先、兄弟、和后代元素。</li>
+<li>查询文档元素的属性并设置</li>
+<li>查询、修改、设置文档内容</li>
+<li>修改文档结构</li>
+<li>HTML表单</li>
+</ol>
+<a id="more"></a>
+<h4 id="DOM概括"><a href="#DOM概括" class="headerlink" title="DOM概括"></a>DOM概括</h4><p>（document object module）文档对象模型是操作HTML的基础API。文档中每个节点都是一个Node对象。</p>
+<h4 id="查询和选取元素"><a href="#查询和选取元素" class="headerlink" title="查询和选取元素"></a>查询和选取元素</h4><p>对元素进行查询主要有以下方法：</p>
+<ol>
+<li>document.getElementById(id)</li>
+<li>document.getElementByClassName(className)</li>
+<li>document.getElementByTagName(tag) 返回NodeList对象</li>
+<li>document.getElementByName(name) 返回NodeList对象</li>
+<li>document.querySelector(CSS选择器) 返回第一个匹配成功的元素</li>
+<li>document.querySelectorAll(CSS选择器) 返回调用时所有匹配成功的元素的NodeList对象</li>
+</ol>
+<h4 id="节点遍历"><a href="#节点遍历" class="headerlink" title="节点遍历"></a>节点遍历</h4><p>Node对象定义了一下一些关于节点的属性：</p>
+<ol>
+<li>parentNode : 该节点的父节点</li>
+<li>childNodes ： 该节点的字节点的实时表示，是只读的类数组对象</li>
+<li>firstChild : 该节点的第一个节点</li>
+<li>lastChild : 该节点的最后一个节点</li>
+<li>nextSibling : 该节点的下一个兄弟节点</li>
+<li>previousSibling : 该节点的前一个兄弟节点</li>
+<li>nodeType : 该节点的类型。 1代表Element节点，3代表Text节点，8代表Comment节点，9代表Document节点，11代表DocumentFragment节点</li>
+<li>nodeValue : Text节点或Comment节点的文本内容</li>
+<li>nodeName ： 元素的标签名，以大写形式表示</li>
+<li>children : 非标准属性，是NodeList对象。只包含该节点的子节点的Element对象，不含有text节点或coment节点。text节点和comment节点没有children属性</li>
+<li>childElementCount : 子元素的数量，与children.length值相同</li>
+<li>firstElementChild</li>
+<li>lastElementChild</li>
+<li>nextElementSibling</li>
+<li><p>previousElementSibling</p>
+<p>12-15都是只返回Element对象，不包含text和comment节点。</p>
+</li>
+</ol>
+<h4 id="文档元素属性"><a href="#文档元素属性" class="headerlink" title="文档元素属性"></a>文档元素属性</h4><p> HTML属性名不区分大小写。但有一些属性名在JS中是保留字，需要另外的名字，比如class–className、for–htmlFor等。</p>
+<p> 表示HTML属性值通常是字符串。事件处理程序属性值总是为Function对象。style属性值是CSSStyleDeclaration对象。</p>
+<p> 设置和获取属性可用setAttribute()和getAttribute()方法。<br> hasAttribute()方法可用来检测是否存在指定属性，removeAttribute()可用来完全删除属性。</p>
+<p> HTML5种定义了以 “data-*”为前缀的小写的自定义数据集属性,这些属性定义了一种标准的、附加额外数据的方法。</p>
+<p> 对Node节点还定义了一种attributes属性。attributes属性是只读的类数组对象，代表元素的所有属性。可以通过数字索引访问，可以枚举所有的属性。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.body.attributes[0];</div><div class="line">document.body.attributes.fontSize;</div><div class="line">document.body.attributes[&apos;color&apos;];</div></pre></td></tr></table></figure>
+<h4 id="文档内容"><a href="#文档内容" class="headerlink" title="文档内容"></a>文档内容</h4><h5 id="作为HTML的元素内容"><a href="#作为HTML的元素内容" class="headerlink" title="作为HTML的元素内容"></a>作为HTML的元素内容</h5><p>Element对象的innerHTML属性可以得到当前节点的包含的内容字符串，也可以设置内容。而Element对象的outerHTML属性得到的是当前节点和节点内的内容组成的字符串，设置outerHTML则会更新节点本身。</p>
+<p>除了innerHTML和outerHTML外，还定义insertAdjacentHTML()方法。此方法将任意的HTML标记字符串插入到指定的元素相邻的位置。有两个参数：第一个参数是“boforebegin、afterbegin、beforeend、afterend”其中之一的字符串形式。第二个参数是要插入的标记字符串。</p>
+<h5 id="作为纯文本的元素内容"><a href="#作为纯文本的元素内容" class="headerlink" title="作为纯文本的元素内容"></a>作为纯文本的元素内容</h5><p>有时需要查询纯文本内容或设置纯文本内容，则可以使用节点的textContent属性。textContent属性会保留文本中的空白,其返回的值是该节点下所有的文本节点，包括后代节点的文本内容，简单的串联在一起，并且会保留其中的空白。</p>
+<p>而元素节点的innerText属性同样会返回文本内容，也包括后代的文本内容，但会忽略多余的空白，并试图保留表格的格式，不返回<code>&lt;script&gt;</code>元素中的内容。</p>
+<h5 id="作为Text节点的元素内容"><a href="#作为Text节点的元素内容" class="headerlink" title="作为Text节点的元素内容"></a>作为Text节点的元素内容</h5><p>把文本内容当作一个Text节点来看待，可以访问Text节点的nodeValue属性获得内容。同时也可以通过nodeValue属性设置Text节点的内容。</p>
+<h4 id="修改文档结构"><a href="#修改文档结构" class="headerlink" title="修改文档结构"></a>修改文档结构</h4><ol>
+<li>document.createElement() : 创建新的Element节点，参数为节点名字符串</li>
+<li>document。createTextNode() : 创建Text节点,参数为文本内容</li>
+<li>Node.cloneNode() : 返回node节点的复制版本，传递参数true能递归的复制所有的后代节点；传递参数false值执行一个浅复制,只复制node节点，不复制后代节点</li>
+<li></li>
+</ol>
+
       
     </div>
 
@@ -383,6 +486,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
       
 
       
@@ -454,8 +563,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -528,6 +646,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM概括"><span class="nav-number">1.</span> <span class="nav-text">DOM概括</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询和选取元素"><span class="nav-number">2.</span> <span class="nav-text">查询和选取元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点遍历"><span class="nav-number">3.</span> <span class="nav-text">节点遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档元素属性"><span class="nav-number">4.</span> <span class="nav-text">文档元素属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档内容"><span class="nav-number">5.</span> <span class="nav-text">文档内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#作为HTML的元素内容"><span class="nav-number">5.1.</span> <span class="nav-text">作为HTML的元素内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作为纯文本的元素内容"><span class="nav-number">5.2.</span> <span class="nav-text">作为纯文本的元素内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作为Text节点的元素内容"><span class="nav-number">5.3.</span> <span class="nav-text">作为Text节点的元素内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改文档结构"><span class="nav-number">6.</span> <span class="nav-text">修改文档结构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
