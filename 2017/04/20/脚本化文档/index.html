@@ -107,7 +107,7 @@ HTML表单">
 查询、修改、设置文档内容
 修改文档结构
 HTML表单">
-<meta property="og:updated_time" content="2017-05-03T15:42:25.000Z">
+<meta property="og:updated_time" content="2017-05-11T15:59:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="脚本化文档">
 <meta name="twitter:description" content="这次主要记录对脚本化文档的学习。包括有以下内容：
@@ -456,10 +456,86 @@ HTML表单">
 <h5 id="作为Text节点的元素内容"><a href="#作为Text节点的元素内容" class="headerlink" title="作为Text节点的元素内容"></a>作为Text节点的元素内容</h5><p>把文本内容当作一个Text节点来看待，可以访问Text节点的nodeValue属性获得内容。同时也可以通过nodeValue属性设置Text节点的内容。</p>
 <h4 id="修改文档结构"><a href="#修改文档结构" class="headerlink" title="修改文档结构"></a>修改文档结构</h4><ol>
 <li>document.createElement() : 创建新的Element节点，参数为节点名字符串</li>
-<li>document。createTextNode() : 创建Text节点,参数为文本内容</li>
+<li>document.createTextNode() : 创建Text节点,参数为文本内容</li>
 <li>Node.cloneNode() : 返回node节点的复制版本，传递参数true能递归的复制所有的后代节点；传递参数false值执行一个浅复制,只复制node节点，不复制后代节点</li>
-<li></li>
+<li>parentNode.appendChild(child) : 在父节点中插入子节点，是把子节点插入到最后面</li>
+<li><p>parentNode.insertBefore() : 此方法接受两个参数，第一个是待插入的新节点，第二个是已存在的节点且是父节点的子节点，把新节点插入到已存在的节点前面。此方法要在父节点下调用</p>
+<p>可以调用4-5方法来把已存在的节点进行位置调整。</p>
+</li>
+<li>parenNode.removeChild() : 在父节点的调用下删除父节点的子节点,参数为要删除的子节点</li>
+<li>parentNode.replaceChild() : 在父节点的调用下用新节点替换子节点，第一个参数为新的子节点，第二个参数为旧的子节点</li>
 </ol>
+<h4 id="元素位置和尺寸"><a href="#元素位置和尺寸" class="headerlink" title="元素位置和尺寸"></a>元素位置和尺寸</h4><p>元素的坐标有两种，一种是文档坐标，一种是视口坐标。</p>
+<p>文档坐标：是元素在整个文档中的坐标，是固定的，不随文档滚动而改变。</p>
+<p>视口坐标：是显示文档的窗口，不包括浏览器的菜单栏、工具条或者其他工具部分。元素在视口中的坐标会随着文档的滚动而改变。</p>
+<p>几种坐标值的区别：</p>
+<ol>
+<li>window.pageXoffset : 与scrollX相同</li>
+<li>window.pageYoffset : 与scrollY相同</li>
+<li>pageX : 返回鼠标指针在文档中的水平位置像素值</li>
+<li>pageY : 返回鼠标指针在文档中的垂直位置像素值</li>
+<li>Element.scrollLeft : 返回元素的水平滚动的像素值，可写</li>
+<li>Element.scrollTop : 返回元素的垂直滚动的像素值，可写</li>
+<li>window.scrollX : 返回文档水平滚动的像素值</li>
+<li>window.scrollY : 返回文档垂直滚动的像素值</li>
+<li>screenX : 返回鼠标指针在屏幕的水平坐标值</li>
+<li>screenY : 返回鼠标指针在屏幕的垂直坐标值</li>
+<li>Element.clientWidth : 返回元素的padding宽度加文本的width宽度</li>
+<li>Element.clientHeight : 返回元素的padding的高度加文本height高度</li>
+<li>Element.clientTop : 返回元素的borderTop的高度值</li>
+<li>Element.clientLeft : 返回元素的borderLeft的宽度值</li>
+<li>Element.offsetWidth : 返回元素的宽度像素值( 包括边框和内边距）</li>
+<li>Element.offsetHeight : 返回元素的高度像素值 (包括边框和内边距）</li>
+<li>Element.offsetLeft : 返回元素的X坐标，对于已定位的元素的后代元素，返回的坐标是相对于祖先元素的坐标，Y坐标同理。未定位的元素返回的是文档坐标。</li>
+<li>Element.offsetTop : 返回元素的Y坐标</li>
+<li>Element.offsetParent : 返回元素的相对的父元素</li>
+<li>Element.scrollWidth : 返回元素的内容区域加上内边距和溢出的内容的宽度，如果没有溢出内容，则和clientWidth相等</li>
+<li>Element.scrollHeight : 返回元素的内容区域加上内边距和溢出的内容的高度，如果没有溢出内容，则和clientHeight相等</li>
+</ol>
+<p> Element.getBoundingClientRect() : 无参数。此方法返回元素在视口中的坐标位置，是一个对象(left、top、bottom、right、width、height属性)，包含left、top表示元素的左上角X和Y的坐标，也包含right、bottom表示元素右下角X和Y的坐标。其坐标值包含元素的padding和border，不包含margin。width和height同样包含元素的padding和border。<br>此方法并不是实时的，在用户滚动或改变浏览器窗口大小时不会更新，它只是调用时反映文档视觉状态的静态快照。</p>
+<p>Document.elementFromPoint() : 判定在视口中指定位置上有什么元素，参数为X、Y坐标(视口坐标)，返回的是该点上最顶层的元素。</p>
+<p>window.scrollTo() : 接受一个X、Y坐标(文档坐标)，作为滚动条的偏移量，使得窗口滚动到指定点出现在视口的左上角。</p>
+<p>window.scrollBy() : 与scrollTo(）函数相似，但其参数是相对的，是在当前滚动条上增加偏移量。</p>
+<p>Element.scrollIntoView() : 滚动文档，参数为true(默认)使得Element元素上边缘接近视口的上边缘，或者参数为false元素的下边缘接近视口的下边缘。也会水平滚动视口。</p>
+<h4 id="HTML表单"><a href="#HTML表单" class="headerlink" title="HTML表单"></a>HTML表单</h4><p>获取表单除了className、name、TagName、id外，还有document.forms.name或者document.forms[n]。</p>
+<p>HTMLFormElement.submit() : 调用此方法来提交表单</p>
+<p>HTMLFormElement.reset() : 调用此方法重置表单各元素的值</p>
+<p>表单内的元素通常含有以下属性：</p>
+<ol>
+<li>type：标示表单元素类型的只读字符串</li>
+<li>form ： 对包含元素的Form对象的引用</li>
+<li>name ：只读字符串，由HTML的name属性指定</li>
+<li>value：可读写的字符串，指定了表单元素包含或代表的值。提交表单时发送到服务器的字符串。对于text或textarea元素，其代表了用户输入的文本。</li>
+</ol>
+<p>事件：</p>
+<ol>
+<li>onsubmit : 在表单提交前调用此事件，返回false阻止表单提交。此事件只能通过单击提交按钮出发，调用submit()方法不会触发此事件。</li>
+<li>onreset ： 在表单重置前触发。返回false阻止重置。只能通过重置按钮触发。</li>
+<li>onclick ：与表单交互时触发,返回false时，按钮的默认动作则不会执行</li>
+<li>onchange ：同上，只有完整的改变才会触发此事件，换句话说就是改变焦点且元素值改变时才会触发</li>
+<li>focus : 收到焦点时触发</li>
+<li>blur：失去焦点时触发</li>
+</ol>
+<p>按钮：</p>
+<p>点击按钮时会触发onclick事件，如果事件返回false时，则会阻止按钮默认动作的执行。</p>
+<p>对于单选框按钮，设置相同的name属性值，则会只选择一个单选框。设置ckecked属性会默认选择此单选框或复选框。</p>
+<p>点击单选或复选按钮时，会触发onclick事件，由于点击时改变了状态，也会触发onchange事件。onchange事件只会触发在点击的那个按钮，被动改变的按钮不会触发。</p>
+<h4 id="Document属性"><a href="#Document属性" class="headerlink" title="Document属性"></a>Document属性</h4><p>document.body : 选取文档的body元素</p>
+<p>document.documentElement : 返回文档的根元素</p>
+<p>document.forms ： 返回文档的所有表单元素，类数组</p>
+<p>document.cookie : 可对HTTPcookie属性进行读写操作</p>
+<p>document.domain ： 同源策略属性</p>
+<p>document.lastModified : 包含文档修改时间的字符串</p>
+<p>document.location : 和window.location属性引用同一个location对象</p>
+<p>document.title : 文档<code>&lt;title&gt;</code>标签间的内容字符串</p>
+<p>document.URL : 只读字符串，表示文档的URL，与location.href初始值相同，只是不会动态变化</p>
+<p>document.referrer : 返回链接到当前文档的上一个文档的URL</p>
+<p>document.write() : 会将字符串参数连接起来，然后将结果字符串插入到调用此方法的位置。最好只在解析文档时使用此方法。如果在其他地方使用，可能会擦出当前文档和脚本。可以多次使用此方法来逐步建立新的文档内容。</p>
+<p>ducument.wirteIn()：与上同，只是在参数输出后会追加一个换行符。</p>
+<p>document.getSelection() : 与window.getSelection() 方法相同。返回一个Selection对象，描述了当前选取的一系列的Range对象。</p>
+<p>设置标签的contenteditable属性为true可使的元素的内容变成可编辑的，设置元素的spellcheck属性为true时可开启拼写检查。</p>
+<p>设置Doxument对象的designMode属性为on，可使的整个文档对象可编辑。其没有对应的HTML属性，只能在脚本里设置。</p>
+<p>document.execCommand() : 此方法可执行多项文本编辑命令。详情看<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/execCommand" target="_blank" rel="external">这里</a></p>
 
       
     </div>
@@ -656,7 +732,7 @@ HTML表单">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM概括"><span class="nav-number">1.</span> <span class="nav-text">DOM概括</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询和选取元素"><span class="nav-number">2.</span> <span class="nav-text">查询和选取元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点遍历"><span class="nav-number">3.</span> <span class="nav-text">节点遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档元素属性"><span class="nav-number">4.</span> <span class="nav-text">文档元素属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档内容"><span class="nav-number">5.</span> <span class="nav-text">文档内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#作为HTML的元素内容"><span class="nav-number">5.1.</span> <span class="nav-text">作为HTML的元素内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作为纯文本的元素内容"><span class="nav-number">5.2.</span> <span class="nav-text">作为纯文本的元素内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作为Text节点的元素内容"><span class="nav-number">5.3.</span> <span class="nav-text">作为Text节点的元素内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改文档结构"><span class="nav-number">6.</span> <span class="nav-text">修改文档结构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM概括"><span class="nav-number">1.</span> <span class="nav-text">DOM概括</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查询和选取元素"><span class="nav-number">2.</span> <span class="nav-text">查询和选取元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#节点遍历"><span class="nav-number">3.</span> <span class="nav-text">节点遍历</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档元素属性"><span class="nav-number">4.</span> <span class="nav-text">文档元素属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文档内容"><span class="nav-number">5.</span> <span class="nav-text">文档内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#作为HTML的元素内容"><span class="nav-number">5.1.</span> <span class="nav-text">作为HTML的元素内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作为纯文本的元素内容"><span class="nav-number">5.2.</span> <span class="nav-text">作为纯文本的元素内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#作为Text节点的元素内容"><span class="nav-number">5.3.</span> <span class="nav-text">作为Text节点的元素内容</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改文档结构"><span class="nav-number">6.</span> <span class="nav-text">修改文档结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元素位置和尺寸"><span class="nav-number">7.</span> <span class="nav-text">元素位置和尺寸</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML表单"><span class="nav-number">8.</span> <span class="nav-text">HTML表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Document属性"><span class="nav-number">9.</span> <span class="nav-text">Document属性</span></a></li></ol></div>
             
 
           </div>
